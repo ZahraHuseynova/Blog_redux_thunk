@@ -6,9 +6,10 @@ import App from './components/App'
 import reducers from 'react-redux'
 
 const store = createStore(reducers,applyMiddleware(thunk));
+
 ReactDOM.render(
-    <Provider>
+    <Provider store={store}>
         <App/>
     </Provider>,
     document.getElementById('root')
-)
+);
