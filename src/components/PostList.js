@@ -5,11 +5,12 @@ import UserHeader from "./UserHeader";
 
 class PostList extends Component{
     componentDidMount(){
-        this.props.fetchPosts();
+        this.props.fetchPostsandUsers();
     }
     
     renderList (){
         return this.props.posts.map((post)=>{
+            return(
             <div className="item" key={post.id}>
                 <i className="large middle aligned icon user"/>
                 <div className="content">
@@ -22,8 +23,9 @@ class PostList extends Component{
                     </div>
                 </div>
             </div>
-        })
-    }
+            );
+        });
+    };
 
     render(){
         return (
@@ -36,4 +38,4 @@ const mapStateToProps=(state)=>{
     return {post:state.post};
 };
 
-export default connect(null,{fetchPost})(PostList);
+export default connect(mapStateToProps,{fetchPost})(PostList);

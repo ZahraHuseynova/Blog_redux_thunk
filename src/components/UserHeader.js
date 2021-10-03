@@ -1,15 +1,10 @@
 import { Component } from "react";
 import { connect} from "react-redux"
-import { fetchUser } from "../actions";
+
 
 class UserHeader extends Component {
-    componentDidMount(){
-        this.props.fetchUser(this.props.userId);
-    }
-
     render(){
-        const {user} = this.props;
-
+        const {user}=this.props;
         return <div className="header">{user?.name}</div>
     }
 }
